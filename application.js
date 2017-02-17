@@ -23,7 +23,7 @@ $(document).ready(function(){
 				color = 'black';
 		
 
-		for(var i = 0; i < cuadros**2; i++){
+		for(var i = 0; i < Math.pow(cuadros,2); i++){
 			$('.scketch-body').append('<div class="inner"></div>');
 		}
 		$('.inner').css({'width': ancho, 'height': ancho})
