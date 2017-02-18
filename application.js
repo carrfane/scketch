@@ -1,6 +1,5 @@
 $(document).ready(function(){
 //inicializa el Scketch Path
-	var color = 'black'
 
 	for(var i = 0; i < 144; i++){
 			$('.scketch-body').append('<div class="inner"></div>');
@@ -8,13 +7,20 @@ $(document).ready(function(){
 
 	$('.inner').css({'width': 798/12, 'height': 798/12})
 
-	function colorear(){
+	function colorear(pintura){
 		$('.inner').on('mouseenter', function(){
-			$(this).css({'background-color': color, 'background-image': ''});
+			$(this).css({'background-color': pintura, 'background-image': '', 'border-color': pintura});
 		});
 	}
 
-	colorear();
+	function fondo (imagen) {
+		$('.inner').on('mouseenter', function () {
+			$(this).css({'background-image': imagen, 'background-size': 'cover'})
+		})
+	}
+
+
+	colorear('black');
 
 	$('#reset').on('click', function(){
 		$('.inner').remove();
@@ -29,40 +35,40 @@ $(document).ready(function(){
 		$('.inner').css({'width': ancho, 'height': ancho})
 		$('.scketch-body').css('background-color', 'white');
 		$('.scketch-body').css('background-image', '');
-		colorear();
+		colorear('black');
 	});
 
 	
 
 	$('#black').on('click', function(){
-		color = 'black';
-		colorear();
+		colorear('black');
 	});
 
 	$('#red').on('click', function(){
-		color = 'red';
-		colorear();
+		colorear('red');
 	});
 
 	$('#green').on('click', function(){
-		color = 'green';
-		colorear();
+		colorear('green');
 	});
 
 	$('#blue').on('click', function(){
-		color = 'blue';
-		colorear();
+		colorear('blue');
 	});
 
 	$('#odin').on('click', function(){
-		$('.inner').on('mouseenter', function(){
-			$(this).css({'background-image': 'url(img/odin.jpg)', 'background-size': 'cover'});
-		})
+		fondo('url(img/odin.jpg)')
 	});
 
 	$('#discurpa').on('click', function(){
-		$('.inner').on('mouseenter', function(){
-			$(this).css({'background-image': 'url(img/discurpa.jpg)', 'background-size': 'cover'});
-		})
+		fondo('url(img/discurpa.jpg)')		
 	});
+
+	$('#atilio').on('click', function(){
+		$('.inner').on('mouseenter', function(){
+			var arcoiris = Math.floor(Math.random()*6);
+			var colores = ['white', 'red', 'green', 'blue', 'yellow', 'orange', 'purple']
+			colorear(colores[arcoiris])
+		})
+	})
 });
