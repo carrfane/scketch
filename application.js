@@ -59,4 +59,10 @@ $(document).ready(function(){
 			$(this).css({'background-image': 'url(img/odin.jpg)', 'background-size': 'cover'});
 		})
 	});
+
+	$('#discurpa').on('click', function(){
+		$('.inner').on('mouseenter', function(){
+			$(this).css({'background-image': 'url(img/discurpa.jpg)', 'background-size': 'cover'});
+		})
+	});
 });
