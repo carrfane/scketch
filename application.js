@@ -19,6 +19,13 @@ $(document).ready(function(){
 		})
 	}
 
+	function arcoiris() {
+		
+		$('.inner').on('mouseenter', function(){
+			var colorAleatorio = 'rgb(' + Math.floor(Math.random()*256) + ',' + Math.floor(Math.random()*256) + ',' + Math.floor(Math.random()*256) +')'
+			$(this).css({'background-color': colorAleatorio, 'background-image': '', 'border-color': colorAleatorio})
+		})
+	}
 
 	colorear('black');
 
@@ -65,10 +72,6 @@ $(document).ready(function(){
 	});
 
 	$('#atilio').on('click', function(){
-		$('.inner').on('mouseenter', function(){
-			var arcoiris = Math.floor(Math.random()*6);
-			var colores = ['white', 'red', 'green', 'blue', 'yellow', 'orange', 'purple']
-			colorear(colores[arcoiris])
-		})
+		colorear(arcoiris())
 	})
 });
